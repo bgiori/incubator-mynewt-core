@@ -20,7 +20,7 @@
 #include <assert.h>
 #include <string.h>
 #include "host/ble_hs.h"
-#include "services/mandatory/ble_lls_gap.h"
+#include "services/mandatory/ble_svc_lls.h"
 
 static uint8_t ble_svc_lls_alert_level;
 
