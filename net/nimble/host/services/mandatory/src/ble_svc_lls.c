@@ -64,7 +64,7 @@ ble_svc_lls_access(uint16_t conn_handle, uint16_t attr_handle,
         if (ctxt->att->write.len != sizeof ble_svc_lls_alert_level) {
             return BLE_ATT_ERR_INVALID_ATTR_VALUE_LEN;
         }
-        memcpy(ble_svc_lls_alert_level, ctxt->att->write.data, 
+        memcpy(&ble_svc_lls_alert_level, ctxt->att->write.data, 
             sizeof ble_svc_lls_alert_level);
         break;
     default:
@@ -88,7 +88,7 @@ ble_svc_lls_set_alert_level(uint8_t alert_level)
         return BLE_HS_EINVAL;
     }
     
-    memcpy(ble_sve_lls_alert_level, alert_level, 
+    memcpy(&ble_svc_lls_alert_level, &alert_level, 
             sizeof alert_level);
 
     return 0;
