@@ -27,8 +27,8 @@ struct ble_hs_cfg;
 
 #define BLE_SVC_LLS_ALERT_LEVEL_MAX                         2
 
-const char *ble_svc_lls_alert_level(void);
-int ble_svc_lls_alert_level_set(const char *name);
+const char *ble_svc_lls_get_alert_level(void);
+int ble_svc_lls_set_alert_level(const char *name);
 
 int ble_svc_lls_register(void);
 int ble_svc_lls_init(struct ble_hs_cfg *cfg);

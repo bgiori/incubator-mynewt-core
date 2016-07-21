@@ -76,13 +76,13 @@ ble_svc_lls_access(uint16_t conn_handle, uint16_t attr_handle,
 }
 
 uint8_t
-ble_svc_lls_alert_level(void)
+ble_svc_lls_get_alert_level(void)
 {
     return ble_svc_lls_alert_level;
 }
 
 int
-ble_svc_gap_device_name_set(uint8_t alert_level)
+ble_svc_lls_set_alert_level(uint8_t alert_level)
 {
     if (alert_level > BLE_SVC_LLS_ALERT_LEVEL_MAX) {
         return BLE_HS_EINVAL;
