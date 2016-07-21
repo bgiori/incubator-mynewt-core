@@ -52,6 +52,9 @@
 #include "services/mandatory/ble_svc_gap.h"
 #include "services/mandatory/ble_svc_gatt.h"
 
+/* Additional adopted profiles/services */
+#include "services/mandatory/ble_svc_lls.h"
+
 /* Application-specified header. */
 #include "bleprph.h"
 
@@ -389,6 +392,9 @@ main(void)
     rc = ble_svc_gatt_init(&cfg);
     assert(rc == 0);
 
+    rc = ble_svc_lls_init(&cfg);
+    assert(rc == 0);
+    
     rc = gatt_svr_init(&cfg);
     assert(rc == 0);
 
@@ -416,6 +422,9 @@ main(void)
     assert(rc == 0);
 
     rc = ble_svc_gatt_register();
+    assert(rc == 0);
+
+    rc = ble_svc_lls_register();
     assert(rc == 0);
 
     rc = gatt_svr_register();
