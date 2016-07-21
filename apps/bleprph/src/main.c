@@ -88,7 +88,7 @@ struct os_task bleprph_task;
 bssnz_t os_stack_t bleprph_stack[BLEPRPH_STACK_SIZE];
 
 /** Our global device address (public) */
-uint8_t g_dev_addr[BLE_DEV_ADDR_LEN] = {0x0a, 0x0a, 0x0a, 0x0a, 0x0a, 0x0a};
+uint8_t g_dev_addr[BLE_DEV_ADDR_LEN] = {0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb};
 
 /** Our random address (in case we need it) */
 uint8_t g_random_addr[BLE_DEV_ADDR_LEN];
@@ -431,7 +431,7 @@ main(void)
     assert(rc == 0);
 
     /* Set the default device name. */
-    rc = ble_svc_gap_device_name_set("nimble-bleprph");
+    rc = ble_svc_gap_device_name_set("nimble-bleprph-lls");
     assert(rc == 0);
 
     /* Nmgr ble GATT server initialization */
