@@ -25,13 +25,21 @@ struct ble_hs_cfg;
 #define BLE_SVC_LLS_UUID16                                  0x1803
 #define BLE_SVC_LLS_CHR_UUID16_ALERT_LEVEL                  0x2a06
 
-#define BLE_SVC_LLS_ALERT_LEVEL_MAX                         2
+/* Alert level definitions */
+#define BLE_SVC_LLS_ALERT_LEVEL_NO_ALERT                    0
+#define BLE_SVC_LLS_ALERT_LEVEL_MILD_ALERT                  1
+#define BLE_SVC_LLS_ALERT_LEVEL_HIGH_ALERT                  2
 
-uint8_t ble_svc_lls_get_alert_level(void);
-int ble_svc_lls_set_alert_level(uint8_t);
+typedef int ble_svc_lls_event_fn(uint8_t alert_level); 
+
+uint8_t ble_svc_lls_alert_level_get(void);
+uint8_t ble_svc_lls_alert_level_set(uint8_t alert_level);
+void ble_svc_lls_on_gap_event(struct ble_gap_event *event, void *arg); 
 
 int ble_svc_lls_register(void);
-int ble_svc_lls_init(struct ble_hs_cfg *cfg);
+int ble_svc_lls_init(struct ble_hs_cfg *cfg, 
+                     uint8_t initial_alert_level,
+                     ble_svc_lls_event_fn *cb);
 
 #endif
 
